@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Kamsi Ozorji | Machine Learning Portfolio</title>
+  <title>Geomagnetic Storm Predictor</title>
 
   <meta name="description"
-    content="Machine learning portfolio of Kamsi Ozorji — time-series and rare-event forecasting, including a geomagnetic storm predictor built with XGBoost, LSTM, and TCN classifiers." />
+    content="Geomagnetic Storm Predictor — forecasting 3-hour-ahead geomagnetic storms from OMNI solar-wind parameters, solar-flare activity, and CME activity using XGBoost, LSTM, and TCN classifiers. An AI4ALL Ignite group project." />
 
   <!-- Fonts + stylesheet (you don't need to touch these) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,20 +42,21 @@
   <main>
 
     <section id="home" class="hero">
-      <p class="hero-badge"><span class="badge-dot"></span>Open to internships &amp; collaborations</p>
+      <p class="hero-badge"><span class="badge-dot"></span>AI4ALL Ignite 2026 · Group 23D</p>
 
-      <h1 class="hero-title">Kamsi Ozorji</h1>
+      <h1 class="hero-title">Geomagnetic Storm Predictor</h1>
 
-      <p class="hero-role">ML Student · Time-Series &amp; Space Weather</p>
+      <p class="hero-role">Forecasting Space Weather · 3-Hour Prediction</p>
 
       <p class="hero-sub">
-        I'm a machine learning student who works on time-series forecasting for
-        real-world physical systems. Most recently I helped build a geomagnetic
-        storm predictor that forecasts storm risk three hours ahead from
-        solar-wind, flare, and CME data, comparing XGBoost, LSTM, and TCN
-        classifiers across 30 years of space-weather observations. I care about
-        leakage-safe evaluation, honest metrics on imbalanced data, and shipping
-        models people can actually interact with.
+        Geomagnetic storms can disrupt satellites, GPS, aviation systems, and power
+        infrastructure. This project builds three machine learning classifiers to
+        predict whether a geomagnetic storm will occur in the next 3 hours from
+        OMNI solar-wind parameters, solar-flare activity, and CME data. We trained
+        and deployed XGBoost, LSTM, and TCN models on 30 years of observations,
+        evaluated with chronological splits to avoid time leakage, and shipped them
+        behind an interactive Streamlit dashboard for side-by-side comparison and
+        real-time forecasting.
       </p>
 
       <div class="hero-buttons">
@@ -66,61 +67,58 @@
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-value">3</span>
-          <span class="stat-label">Models Deployed</span>
+          <span class="stat-label">Classifiers (XGBoost, LSTM, TCN)</span>
         </div>
         <div class="stat">
           <span class="stat-value">87,649</span>
-          <span class="stat-label">3-Hour Bins in Dataset</span>
+          <span class="stat-label">3-Hour Bins (1995–2024)</span>
         </div>
         <div class="stat">
-          <span class="stat-value">1995–2024</span>
-          <span class="stat-label">Years of Data</span>
+          <span class="stat-value">6</span>
+          <span class="stat-label">Team Members</span>
         </div>
       </div>
     </section>
 
     <section id="about" class="section">
-      <h2 class="section-title">About</h2>
+      <h2 class="section-title">Problem &amp; Approach</h2>
 
       <div class="about-grid">
         <div class="about-photo">
-          <div class="avatar-circle">KO</div>
+          <div class="avatar-circle">🌪️</div>
         </div>
 
         <div class="about-text">
           <p>
-            I'm a machine learning student focused on time-series and rare-event
-            prediction. Space weather is what pulled me in: geomagnetic storms
-            can disrupt satellites, GPS, aviation, and power grids, but they're
-            rare enough that a careless model can post a great accuracy score
-            while catching almost nothing. Learning to tell those two situations
-            apart — and to build evaluation that doesn't lie to you — is the part
-            of ML I find most interesting.
+            <strong>The Challenge:</strong> Geomagnetic storms are rare but high-impact events. A naive model can
+            achieve great accuracy scores while catching almost nothing. We needed to
+            predict whether the Ap index (a measure of geomagnetic disturbance) will
+            reach storm thresholds in the next 3 hours — balancing sensitivity to
+            true storms against the cost of false alarms.
           </p>
           <p>
-            Most of my recent work has gone into the Geomagnetic Storm Predictor,
-            built with a six-person AI4ALL Ignite team: Nithila Sadheesh, Nancy
-            Nakyung Kwak, Chan Li, Hafsah Khan, Nana Oppong Ampofo, and me. We
-            combined OMNI solar-wind, NASA DONKI CME, solar-flare, and
-            geomagnetic-index sources into an 87,649-row dataset binned into
-            3-hour windows, trained both tabular and sequence classifiers using
-            chronological splits to avoid time leakage, and deployed all three
-            final models behind an interactive Streamlit dashboard. Next I want
-            to go deeper on sequence models and probability calibration.
+            <strong>Our Solution:</strong> We built a time-binned dataset from OMNI solar-wind parameters, NASA
+            DONKI CME events, solar-flare counts, and geomagnetic indices, spanning
+            1995–2024. We trained three different model architectures — XGBoost for
+            interpretability, LSTM for sequential dependencies, and TCN for causal
+            temporal convolution — all with chronological train/test splits to
+            prevent time leakage. Each model uses different strategies to handle
+            severe class imbalance: oversampling, pos-weighted loss, and focal loss.
+            The final models are deployed behind an interactive Streamlit dashboard.
           </p>
 
           <div class="quick-facts">
             <div class="fact-card">
               <span class="fact-label">Program</span>
-              <span class="fact-value">AI4ALL Ignite</span>
+              <span class="fact-value">AI4ALL Ignite 2026</span>
             </div>
             <div class="fact-card">
-              <span class="fact-label">Focus Area</span>
-              <span class="fact-value">Time-Series &amp; Rare-Event ML</span>
+              <span class="fact-label">Data Period</span>
+              <span class="fact-value">1995–2024 (30 years)</span>
             </div>
             <div class="fact-card">
-              <span class="fact-label">Toolkit</span>
-              <span class="fact-value">Python · PyTorch · XGBoost</span>
+              <span class="fact-label">Evaluation</span>
+              <span class="fact-value">2010–2021 train, 2022–2024 test</span>
             </div>
           </div>
         </div>
@@ -128,64 +126,65 @@
     </section>
 
     <section id="skills" class="section">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Technologies &amp; Methods</h2>
 
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>Languages</h3>
-          <ul class="chip-list">
-            <li>Python</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>Machine Learning &amp; Data</h3>
+          <h3>Data &amp; Processing</h3>
           <ul class="chip-list">
             <li>pandas</li>
             <li>NumPy</li>
-            <li>scikit-learn</li>
-            <li>XGBoost</li>
-            <li>PyTorch</li>
-            <li>imbalanced-learn</li>
-            <li>Matplotlib</li>
-            <li>seaborn</li>
-          </ul>
-        </div>
-
-        <div class="skill-category">
-          <h3>Tools</h3>
-          <ul class="chip-list">
-            <li>Jupyter Notebook</li>
-            <li>Streamlit</li>
-            <li>Git &amp; GitHub</li>
-            <li>joblib</li>
             <li>Parquet</li>
+            <li>Feature engineering</li>
+            <li>Time-binned aggregation</li>
           </ul>
         </div>
 
         <div class="skill-category">
-          <h3>Modeling Focus</h3>
+          <h3>Classifiers</h3>
           <ul class="chip-list">
-            <li>Time-series forecasting</li>
-            <li>Sequence models (LSTM/TCN)</li>
-            <li>Class imbalance</li>
+            <li>XGBoost</li>
+            <li>LSTM (PyTorch)</li>
+            <li>TCN — causal dilated convolution</li>
+            <li>scikit-learn baselines</li>
             <li>Threshold tuning</li>
-            <li>Leakage-safe validation</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Imbalance &amp; Validation</h3>
+          <ul class="chip-list">
+            <li>RandomOverSampler</li>
+            <li>Pos-weighted BCE</li>
+            <li>Focal loss (α .75, γ 2)</li>
+            <li>Chronological train/test split</li>
+            <li>ROC-AUC, PR-AUC, F1, precision, recall</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Deployment</h3>
+          <ul class="chip-list">
+            <li>Streamlit (multi-page app)</li>
+            <li>joblib model artifacts</li>
+            <li>Cached predictions</li>
+            <li>Interactive dashboards</li>
+            <li>Confusion matrices &amp; PR curves</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section id="projects" class="section">
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Model Comparison</h2>
 
       <p class="contact-blurb">
-        All three projects below are the deployed classifiers from the
-        Geomagnetic Storm Predictor, a six-person AI4ALL Ignite team project.
-        Each one predicts whether the Ap index will reach 50 — roughly Kp 5
-        storm conditions — in the next 3 hours, and all three are trained on
-        2010–2021 and scored on the same held-out 2022–2024 test period, so the
-        numbers are directly comparable.
+        All three classifiers predict whether the Ap index will reach 50 (roughly Kp 5
+        storm conditions) in the next 3 hours. Each is trained on 2010–2021 and
+        evaluated on the same held-out 2022–2024 test period. The models trade off
+        different strengths: XGBoost offers interpretability and high recall;
+        LSTM achieves the highest precision and PR-AUC; TCN delivers the best
+        overall F1 balance.
       </p>
 
       <div class="projects-grid">
@@ -276,17 +275,19 @@
     </section>
 
     <section id="experience" class="section">
-      <h2 class="section-title">Experience &amp; Education</h2>
+      <h2 class="section-title">Development Timeline</h2>
 
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-date">Aug 2026</span>
           <h3>Deployment — Streamlit Dashboard</h3>
           <p>
-            Shipped the three final model artifacts and cached test-period
-            predictions behind a multi-page Streamlit dashboard with adjustable
-            decision thresholds, confusion matrices, precision-recall curves, and
-            a forecast explorer for individual storm events.
+            Shipped three final model artifacts and cached test-period predictions
+            behind an interactive Streamlit multi-page dashboard. Features include
+            adjustable decision thresholds, confusion matrices, precision-recall
+            curves, dataset statistics, model performance comparison, and a
+            forecast explorer for individual storm events with solar-wind, flare,
+            and CME conditions.
           </p>
         </div>
 
@@ -294,58 +295,59 @@
           <span class="timeline-date">Jul 2026</span>
           <h3>Sequence Modeling — LSTM &amp; TCN</h3>
           <p>
-            Moved from single-bin tabular models to 48-hour rolling sequences,
-            training an LSTM with pos-weighted BCE and a causal dilated TCN with
-            focal loss, then tuning operating thresholds to balance precision
-            against recall on a rare positive class.
+            Scaled up from single-bin tabular models to 48-hour rolling window
+            sequences. Trained an LSTM (2×128) with pos-weighted BCE and a causal
+            dilated TCN (4×64) with focal loss. Tuned operating thresholds to
+            maximize F1 while managing the imbalanced positive class on held-out
+            data.
           </p>
         </div>
 
         <div class="timeline-item">
           <span class="timeline-date">Jun – Jul 2026</span>
-          <h3>Data Pipeline &amp; Baseline Models</h3>
+          <h3>Data Pipeline &amp; Baseline Classifiers</h3>
           <p>
-            Combined OMNI solar-wind, NASA DONKI CME, solar-flare, and
-            geomagnetic-index sources into an 87,649-row dataset binned into
-            3-hour windows, ran per-source EDA, and built baseline classifiers —
-            logistic regression, decision tree, random forest, SVM, and XGBoost.
+            Ingested OMNI solar-wind, NASA DONKI CME, solar-flare, and geomagnetic
+            indices. Built 87,649-row dataset binned into 3-hour windows (1995–2024).
+            Ran per-source EDA. Built baseline classifiers: logistic regression,
+            decision tree, random forest, SVM, and XGBoost using RandomOverSampler
+            to address class imbalance.
           </p>
         </div>
 
         <div class="timeline-item">
           <span class="timeline-date">Jun – Aug 2026</span>
-          <h3>AI4ALL Ignite</h3>
+          <h3>AI4ALL Ignite Program</h3>
           <p>
-            Built this project through AI4ALL Ignite, applying machine learning,
-            responsible AI thinking, technical communication, and deployment
-            skills to a real-world space-weather prediction problem as part of a
-            six-person team.
+            Completed as part of AI4ALL Ignite, a six-person team project applying
+            machine learning, responsible AI thinking, technical communication, and
+            deployment skills to a real-world space-weather prediction problem.
+            Team members: Nithila Sadheesh, Nancy Nakyung Kwak, Chan Li, Hafsah
+            Khan, Nana Oppong Ampofo, and Kamsi Ozorji.
           </p>
         </div>
       </div>
     </section>
 
     <section id="contact" class="section contact-section">
-      <h2 class="section-title">Contact</h2>
+      <h2 class="section-title">Repository &amp; Dashboard</h2>
 
       <p class="contact-blurb">
-        The best way to reach me is by email. I'm happy to talk about projects,
-        machine learning, or opportunities to collaborate.
+        The full project, including all modeling notebooks, datasets, EDA analysis,
+        and the deployed dashboard app, is available on GitHub. Run the Streamlit
+        app locally or explore the code and model artifacts.
       </p>
 
-      <a href="mailto:ozorjikj@gmail.com" class="btn btn-primary contact-btn">
-        ozorjikj@gmail.com
-      </a>
-
       <div class="social-links">
-        <a href="https://github.com/anothergrind" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/anothergrind/geomagnetic-storm-predictor" target="_blank" rel="noopener">GitHub Repository</a>
+        <a href="https://github.com/anothergrind/geomagnetic-storm-predictor/blob/main/README.md" target="_blank" rel="noopener">Full README</a>
       </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Kamsi Ozorji</p>
+    <p>Geomagnetic Storm Predictor © <span id="year"></span> · AI4ALL Ignite Group 23D</p>
   </footer>
 
   <script src="js/script.js"></script>
