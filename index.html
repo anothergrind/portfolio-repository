@@ -5,16 +5,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ==================================================================
-       EDIT #1 — PAGE TITLE
-       This is the text shown in the browser tab.
-       Replace "Your Name" with your actual name.
-       ================================================================== -->
-  <title>Your Name | Machine Learning Portfolio</title>
+  <title>Geomagnetic Storm Predictor | AI4ALL Ignite Team</title>
 
-  <meta name="description" content="Personal machine learning portfolio." />
+  <meta name="description"
+    content="Forecasting 3-hour-ahead geomagnetic storms from OMNI solar-wind, solar-flare, and CME data — an AI4ALL Ignite team project comparing XGBoost, LSTM, and TCN classifiers." />
 
-  <!-- Fonts + stylesheet (you don't need to touch these) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -25,15 +20,9 @@
 
 <body>
 
-  <!-- ==================================================================
-       NAVIGATION BAR
-       EDIT #2 — Replace "Your Name" with your name.
-       The nav links point to sections further down the page — leave
-       those alone unless you add/remove sections.
-       ================================================================== -->
   <header class="navbar">
     <nav class="nav-inner">
-      <a href="#home" class="nav-logo">Your Name</a>
+      <a href="#home" class="nav-logo">Geomagnetic Storm Predictor</a>
 
       <button class="nav-toggle" id="navToggle" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -51,109 +40,86 @@
 
   <main>
 
-    <!-- ================================================================
-         HERO — the first thing visitors see
-         EDIT #3 — Change:
-           1. The status badge text (or delete the whole <p> if you prefer)
-           2. "Your Name" and the role line under it
-           3. The summary paragraph
-           4. The three quick stats at the bottom
-         ================================================================ -->
     <section id="home" class="hero">
-      <p class="hero-badge"><span class="badge-dot"></span>Open to internships &amp; collaborations</p>
+      <p class="hero-badge"><span class="badge-dot"></span>Built by a 6-person AI4ALL Ignite team</p>
 
-      <h1 class="hero-title">Your Name</h1>
+      <h1 class="hero-title">Geomagnetic Storm Predictor</h1>
 
-      <p class="hero-role">Machine Learning Student</p>
+      <p class="hero-role">Forecasting geomagnetic storms with machine learning</p>
 
       <p class="hero-sub">
-        Write 2–3 sentences that summarize who you are and what you work on.
-        For example: "I'm a student focused on machine learning. I build and
-        evaluate models with Python and scikit-learn, and I care about writing
-        clear, reproducible code."
+        We forecast whether a geomagnetic storm will occur in the next 3 hours using
+        solar-wind, solar-flare, CME, and geomagnetic-history data. Three classifiers —
+        XGBoost, LSTM, and TCN — are trained on a 1995–2024 time-binned dataset and
+        compared side-by-side in an interactive Streamlit dashboard.
       </p>
 
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#projects" class="btn btn-primary">View Models</a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
 
       <div class="hero-stats">
         <div class="stat">
           <span class="stat-value">3</span>
-          <span class="stat-label">Projects Built</span>
+          <span class="stat-label">Models Deployed</span>
         </div>
         <div class="stat">
-          <span class="stat-value">5+</span>
-          <span class="stat-label">Models Trained</span>
+          <span class="stat-value">1995–2024</span>
+          <span class="stat-label">Years of Data</span>
         </div>
         <div class="stat">
-          <span class="stat-value">2</span>
-          <span class="stat-label">Years Coding</span>
+          <span class="stat-value">6</span>
+          <span class="stat-label">Team Members</span>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         ABOUT SECTION
-         EDIT #4 — Change:
-           1. The initials in the avatar circle ("YN")
-             (or replace the circle with a photo — see the comment)
-           2. The two paragraphs about yourself
-           3. The three "quick fact" boxes
-         ================================================================ -->
     <section id="about" class="section">
       <h2 class="section-title">About</h2>
 
       <div class="about-grid">
         <div class="about-photo">
-          <!-- OPTION A (default): initials avatar. Change "YN" to your initials. -->
-          <div class="avatar-circle">YN</div>
-
-          <!-- OPTION B: use a real photo instead.
-               1. Put your photo in the assets/ folder (e.g. assets/me.jpg)
-               2. Delete the avatar-circle div above
-               3. Un-comment the line below:
-          <img src="assets/me.jpg" alt="Photo of Your Name" class="avatar-photo" />
-          -->
+          <div class="avatar-circle">GSP</div>
         </div>
 
         <div class="about-text">
           <p>
-            Replace this paragraph with your story. Where are you from? What
-            school do you go to? What made you interested in machine learning
-            in the first place?
+            Geomagnetic storms can disrupt satellites, GPS, radio communication, aviation
+            systems, and power infrastructure. Strong storms are rare but high-impact, so
+            prediction systems need to catch true storms while keeping false alarms low.
+            This project was developed as part of AI4ALL Ignite to ask: can solar-wind,
+            flare, CME, and geomagnetic history data predict whether a storm will occur in
+            the next 3 hours?
           </p>
           <p>
-            Use this second paragraph for what you're working on now and where
-            you want to go. What have you built so far? What do you want to
-            study or become? What problems do you want to solve with ML?
+            We built a time-binned modeling dataset from 1995–2024 space-weather
+            observations, trained baseline models (logistic regression, random forest,
+            decision tree, SVM) and three final time-aware classifiers (XGBoost, LSTM, TCN)
+            using chronological train/test splits to avoid time leakage, and deployed all
+            three behind an interactive Streamlit dashboard. This project was built by a
+            six-person team: Nithila Sadheesh, Kamsi Ozorji, Nancy Nakyung Kwak, Chan Li,
+            Hafsah Khan, and Nana Oppong Ampofo.
           </p>
 
           <div class="quick-facts">
             <div class="fact-card">
-              <span class="fact-label">Based in</span>
-              <span class="fact-value">Your City, ST</span>
+              <span class="fact-label">Program</span>
+              <span class="fact-value">AI4ALL Ignite</span>
             </div>
             <div class="fact-card">
-              <span class="fact-label">School</span>
-              <span class="fact-value">Your School</span>
+              <span class="fact-label">Team Size</span>
+              <span class="fact-value">6 people</span>
             </div>
             <div class="fact-card">
               <span class="fact-label">Focus Area</span>
-              <span class="fact-value">e.g. Computer Vision</span>
+              <span class="fact-value">Space-Weather Forecasting</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         SKILLS SECTION
-         EDIT #5 — Each <li> is one skill tag.
-         Add or delete <li> lines to match YOUR real skills.
-         It's okay to have short lists — honesty beats padding.
-         ================================================================ -->
     <section id="skills" class="section">
       <h2 class="section-title">Skills</h2>
 
@@ -162,8 +128,6 @@
           <h3>Languages</h3>
           <ul class="chip-list">
             <li>Python</li>
-            <li>SQL</li>
-            <li>HTML/CSS</li>
           </ul>
         </div>
 
@@ -173,6 +137,9 @@
             <li>pandas</li>
             <li>NumPy</li>
             <li>scikit-learn</li>
+            <li>XGBoost</li>
+            <li>PyTorch</li>
+            <li>imbalanced-learn</li>
             <li>Matplotlib</li>
           </ul>
         </div>
@@ -181,187 +148,177 @@
           <h3>Tools</h3>
           <ul class="chip-list">
             <li>Jupyter Notebook</li>
-            <li>Google Colab</li>
+            <li>Streamlit</li>
+            <li>joblib</li>
             <li>Git &amp; GitHub</li>
           </ul>
         </div>
 
         <div class="skill-category">
-          <h3>Currently Learning</h3>
+          <h3>Data &amp; Deployment</h3>
           <ul class="chip-list">
-            <li>Neural Networks</li>
-            <li>TensorFlow</li>
+            <li>Parquet</li>
+            <li>Streamlit Community Cloud</li>
+            <li>Dev Containers</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         PROJECTS SECTION — the most important part of an ML portfolio!
-         EDIT #6 — There are 3 project cards below. For each one:
-           1. Change the title and description
-           2. Fill in the "model card" rows: Dataset / Model / Result
-           3. Update the tech tags
-           4. Point the link to your GitHub repo
-         To add a 4th project, copy an entire <article>...</article>
-         block and paste it below the last one.
-         To remove a project, delete its whole <article> block.
-         ================================================================ -->
     <section id="projects" class="section">
       <h2 class="section-title">Projects</h2>
 
       <div class="projects-grid">
 
-        <!-- ─────────────── PROJECT CARD 1 ─────────────── -->
+        <!-- ─────────────── XGBOOST ─────────────── -->
         <article class="project-card">
-          <h3 class="project-title">Project Title One</h3>
+          <h3 class="project-title">Storm Predictor — XGBoost</h3>
           <p class="project-desc">
-            One or two sentences: what problem does this project solve, and what
-            did you do? Example: "Classified iris flowers by species using
-            measurements of their petals and sepals."
+            A tree-based classifier that forecasts geomagnetic storm risk 3 hours ahead
+            using engineered tabular features from the current 3-hour space-weather bin
+            (no current Ap features).
           </p>
 
           <div class="model-card">
-            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">e.g. Iris (150 samples)</span></div>
-            <div class="model-row"><span class="model-key">Model</span><span class="model-val">e.g. k-Nearest Neighbors</span></div>
-            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">e.g. 96% accuracy</span></div>
+            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">time_binned_dataset.csv, 1995–2024, 3-hr bins</span></div>
+            <div class="model-row"><span class="model-key">Model</span><span class="model-val">XGBoost, chronological split (train 2010–2021, test 2022–2024)</span></div>
+            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">PR-AUC 0.575 · Precision 0.375 · Recall 0.684 · F1 0.485</span></div>
           </div>
 
           <ul class="tag-list">
             <li>Python</li>
+            <li>XGBoost</li>
             <li>scikit-learn</li>
-            <li>pandas</li>
+            <li>imbalanced-learn</li>
           </ul>
 
           <div class="project-links">
-            <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">View on GitHub</a>
+            <a href="https://github.com/anothergrind/geomagnetic-storm-predictor/blob/main/time-series-modeling/xgboost.ipynb" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </article>
 
-        <!-- ─────────────── PROJECT CARD 2 ─────────────── -->
+        <!-- ─────────────── LSTM ─────────────── -->
         <article class="project-card">
-          <h3 class="project-title">Project Title Two</h3>
+          <h3 class="project-title">Storm Predictor — LSTM</h3>
           <p class="project-desc">
-            Describe your second project here. Don't be shy about challenges you
-            hit — "the data was messy and I had to clean it" shows real skill.
+            A recurrent sequence model that scores storm risk from a rolling 48-hour
+            history of solar-wind and Ap features. Highest precision and PR-AUC of the
+            three deployed models.
           </p>
 
           <div class="model-card">
-            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">Where did the data come from?</span></div>
-            <div class="model-row"><span class="model-key">Model</span><span class="model-val">e.g. Linear Regression</span></div>
-            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">e.g. R² = 0.87</span></div>
+            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">48-hour sequences from time_binned_dataset.csv</span></div>
+            <div class="model-row"><span class="model-key">Model</span><span class="model-val">LSTM, chronological split (train 2010–2021, test 2022–2024)</span></div>
+            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">PR-AUC 0.610 · Precision 0.729 · Recall 0.448 · F1 0.555</span></div>
           </div>
 
           <ul class="tag-list">
             <li>Python</li>
-            <li>NumPy</li>
-            <li>Matplotlib</li>
+            <li>PyTorch</li>
+            <li>LSTM</li>
           </ul>
 
           <div class="project-links">
-            <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">View on GitHub</a>
+            <a href="https://github.com/anothergrind/geomagnetic-storm-predictor/blob/main/time-series-modeling/lstm.ipynb" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </article>
 
-        <!-- ─────────────── PROJECT CARD 3 ─────────────── -->
+        <!-- ─────────────── TCN ─────────────── -->
         <article class="project-card">
-          <h3 class="project-title">Project Title Three</h3>
+          <h3 class="project-title">Storm Predictor — TCN</h3>
           <p class="project-desc">
-            Your third project — maybe a team project? Explain your role if it
-            was a group effort.
+            A causal dilated convolutional network that scores storm risk from a rolling
+            48-hour solar-wind history, without current Ap features. Achieved the
+            strongest final F1 score of the three deployed models.
           </p>
 
           <div class="model-card">
-            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">e.g. 10k movie reviews</span></div>
-            <div class="model-row"><span class="model-key">Model</span><span class="model-val">e.g. Naive Bayes</span></div>
-            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">e.g. F1 score 0.84</span></div>
+            <div class="model-row"><span class="model-key">Dataset</span><span class="model-val">48-hour solar-wind sequences from time_binned_dataset.csv</span></div>
+            <div class="model-row"><span class="model-key">Model</span><span class="model-val">TCN, chronological split (train 2010–2021, test 2022–2024)</span></div>
+            <div class="model-row"><span class="model-key">Result</span><span class="model-val result">PR-AUC 0.602 · Precision 0.611 · Recall 0.552 · F1 0.580</span></div>
           </div>
 
           <ul class="tag-list">
             <li>Python</li>
-            <li>scikit-learn</li>
-            <li>NLP</li>
+            <li>PyTorch</li>
+            <li>TCN</li>
           </ul>
 
           <div class="project-links">
-            <a href="https://github.com/your-username/your-repo" target="_blank" rel="noopener">View on GitHub</a>
+            <a href="https://github.com/anothergrind/geomagnetic-storm-predictor/blob/main/time-series-modeling/tcn.ipynb" target="_blank" rel="noopener">View on GitHub</a>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- ================================================================
-         EXPERIENCE & EDUCATION SECTION
-         EDIT #7 — A simple timeline. Update the dates, titles, and
-         descriptions. Copy/paste a "timeline-item" div to add more steps.
-         ================================================================ -->
     <section id="experience" class="section">
       <h2 class="section-title">Experience &amp; Education</h2>
 
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-date">2026</span>
-          <h3>Machine Learning Program or Course</h3>
+          <h3>AI4ALL Ignite Program</h3>
           <p>
-            The program, bootcamp, or course where you learned ML fundamentals:
-            data cleaning, model training and evaluation, and responsible AI.
+            Completed this project as part of AI4ALL Ignite, applying machine learning,
+            responsible AI thinking, technical communication, and deployment skills to a
+            real-world space-weather prediction problem.
           </p>
         </div>
 
         <div class="timeline-item">
-          <span class="timeline-date">20XX</span>
-          <h3>Add a milestone here</h3>
+          <span class="timeline-date">2026</span>
+          <h3>Data Engineering &amp; EDA</h3>
           <p>
-            A class you took, a club you joined, a hackathon, a personal project —
-            anything that's part of your story.
+            Combined OMNI solar-wind, DONKI CME, solar-flare, and geomagnetic-index
+            sources into a 3-hour time-binned dataset spanning 1995–2024, with per-source
+            EDA notebooks.
           </p>
         </div>
 
         <div class="timeline-item">
-          <span class="timeline-date">20XX – Present</span>
-          <h3>Your School Name</h3>
+          <span class="timeline-date">2026</span>
+          <h3>Baseline &amp; Time-Aware Modeling</h3>
           <p>
-            Your grade/year, favorite subjects, clubs or activities you're part of.
+            Built baseline classifiers (logistic regression, random forest, decision tree,
+            SVM), then time-aware XGBoost, LSTM, and TCN models with chronological
+            train/test splits and class-imbalance handling.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">2026</span>
+          <h3>Streamlit Deployment</h3>
+          <p>
+            Deployed the three final model artifacts and cached test-period predictions
+            behind an interactive multi-page Streamlit dashboard for model comparison and
+            forecast exploration.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================
-         CONTACT SECTION
-         EDIT #8 — Update:
-           1. The email address (appears TWICE: in href and in the text)
-           2. Your GitHub and LinkedIn URLs
-         Don't have LinkedIn yet? Just delete that <a> tag.
-         ================================================================ -->
     <section id="contact" class="section contact-section">
       <h2 class="section-title">Contact</h2>
 
       <p class="contact-blurb">
-        The best way to reach me is by email. I'm happy to talk about projects,
-        machine learning, or opportunities to collaborate.
+        Have feedback on the project or want to collaborate? Reach out — we're happy to
+        talk about the models, the data pipeline, or space-weather prediction in general.
       </p>
 
-      <a href="mailto:your.email@example.com" class="btn btn-primary contact-btn">
-        your.email@example.com
+      <a href="mailto:ozorjikj@gmail.com" class="btn btn-primary contact-btn">
+        ozorjikj@gmail.com
       </a>
 
       <div class="social-links">
-        <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
-        <span class="social-sep">·</span>
-        <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/anothergrind/geomagnetic-storm-predictor" target="_blank" rel="noopener">GitHub</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ==================================================================
-       FOOTER
-       EDIT #9 — Put your name here. The year updates automatically.
-       ================================================================== -->
   <footer class="footer">
-    <p>© <span id="year"></span> Your Name</p>
+    <p>© 2026 Nithila Sadheesh, Kamsi Ozorji, Nancy Nakyung Kwak, Chan Li, Hafsah Khan &amp; Nana Oppong Ampofo</p>
   </footer>
 
   <script src="js/script.js"></script>
