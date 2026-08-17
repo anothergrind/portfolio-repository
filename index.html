@@ -31,10 +31,12 @@
 
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">Overview</a></li>
-        <li><a href="#skills">Technologies</a></li>
+        <li><a href="#data">Data</a></li>
         <li><a href="#projects">Models</a></li>
+        <li><a href="#results">Evaluation</a></li>
+        <li><a href="#impact">Impact</a></li>
         <li><a href="#experience">Timeline</a></li>
-        <li><a href="#contact">Links</a></li>
+        <li><a href="#future">Next Steps</a></li>
       </ul>
     </nav>
   </header>
@@ -60,8 +62,16 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        <a href="#results" class="btn btn-primary">View Results</a>
+
+        <a
+          href="https://geomagnetic-storm-predictor-j2aajm6exxcsez34zesctv.streamlit.app/"
+          target="_blank"
+          rel="noopener"
+          class="btn btn-outline"
+        >
+          Try the Dashboard ↗
+        </a>
       </div>
 
       <div class="hero-stats">
@@ -85,7 +95,7 @@
 
       <div class="about-grid">
         <div class="about-photo">
-          <div class="avatar-circle">🌪️</div>
+          <div class="avatar-circle">🌌</div>
         </div>
 
         <div class="about-text">
@@ -123,6 +133,173 @@
           </div>
         </div>
       </div>
+    </section>
+
+    <section id="data" class="section">
+
+      <h2 class="section-title">Data</h2>
+
+      <div class="quick-facts">
+
+        <div class="fact-card">
+          <span class="fact-label">OBSERVATIONS</span>
+          <span class="fact-value">87,649</span>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-label">TIME PERIOD</span>
+          <span class="fact-value">1995–2024</span>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-label">TIME BIN</span>
+          <span class="fact-value">3 hours</span>
+        </div>
+
+        <div class="fact-card">
+          <span class="fact-label">FORECAST TARGET</span>
+          <span class="fact-value">storm_3h</span>
+        </div>
+
+      </div>
+
+      <p class="section-intro">
+        The modeling dataset combines multiple public space-weather sources
+        into 3-hour time bins covering 1995–2024. Each row represents the
+        information available during one 3-hour interval and is used to
+        determine whether a geomagnetic storm occurs three hours later.
+      </p>
+
+      <div class="info-panel">
+
+        <h3>Data Sources</h3>
+
+        <p>
+          The project combines publicly available space-weather observations and
+          event data from several sources. The source datasets were processed and
+          aggregated into 3-hour intervals for use in model training and evaluation.
+        </p>
+
+        <ul>
+          <li>
+            <a href="https://omniweb.gsfc.nasa.gov/ow.html"
+              target="_blank" rel="noopener">
+              NASA/GSFC OMNIWeb
+            </a>
+            — near-Earth solar-wind plasma and interplanetary magnetic-field
+            measurements, including variables such as solar-wind speed, proton
+            density, and magnetic-field components.
+          </li>
+
+          <li>
+            <a href="https://ccmc.gsfc.nasa.gov/tools/DONKI/"
+              target="_blank" rel="noopener">
+              NASA DONKI
+            </a>
+            — space-weather event information used to derive features related to
+            coronal mass ejections (CMEs) and other solar events.
+          </li>
+
+          <li>
+            <a href="https://huggingface.co/datasets/juliensimon/solar-flare-events"
+              target="_blank" rel="noopener">
+              Solar Flare Data
+            </a>
+            — solar-flare event information used to construct
+            flare-related features.
+          </li>
+
+          <li>
+            <a href="https://huggingface.co/datasets/juliensimon/space-weather-indices"
+              target="_blank" rel="noopener">
+              Geomagnetic Index Data
+            </a>
+            — geomagnetic activity indices, including the 3-hourly ap index,
+            used in constructing the storm target and related features.
+          </li>
+        </ul>
+
+        <p>
+          The resulting dataset contains 87,649 three-hour observations spanning
+          1995–2024. Features from these sources were combined and time-aligned so
+          that information available at a given time could be used to predict
+          geomagnetic storm conditions three hours later.
+        </p>
+
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-category">
+          <h3>Solar Wind</h3>
+          <ul class="chip-list">
+            <li>Wind speed</li>
+            <li>Proton density</li>
+            <li>Dynamic pressure</li>
+            <li>Electric field</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Magnetic Field</h3>
+          <ul class="chip-list">
+            <li>Bz</li>
+            <li>By</li>
+            <li>Bt</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Solar Activity</h3>
+          <ul class="chip-list">
+            <li>Solar flares</li>
+            <li>CME counts</li>
+            <li>CME speeds</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <h3>Geomagnetic Activity</h3>
+          <ul class="chip-list">
+            <li>Ap index</li>
+            <li>Storm labels</li>
+            <li>Historical activity</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="about-text">
+
+        <p>
+          <strong>Target definition:</strong>
+          <code>storm_3h = 1</code> when the future Ap index reaches
+          at least 50, approximately corresponding to Kp 5 geomagnetic
+          storm conditions.
+        </p>
+
+        <p>
+          The chronological split uses 2010–2021 for training and
+          2022–2024 as the held-out test period, preventing future
+          observations from leaking into model training.
+        </p>
+
+      </div>
+
+      <div class="about-photo">
+
+        <img
+          src="assets/ap_indexes.png"
+          alt="Ap index activity across the 1995–2024 observation period"
+        />
+        <p class="image-caption">
+          Ap-index activity across the 1995–2024
+          observation period, illustrating the historical geomagnetic conditions
+          represented in the modeling dataset.
+        </p>
+
+      </div>
+
     </section>
 
     <section id="skills" class="section">
@@ -190,7 +367,10 @@
       <div class="projects-grid">
 
         <article class="project-card">
-          <h3 class="project-title">Storm Predictor — XGBoost</h3>
+          <h3 class="project-title">
+            <span class="model-accent">01</span>
+            Storm Predictor — XGBoost
+          </h3>
           <p class="project-desc">
             A gradient-boosted tree classifier that forecasts storm risk 3 hours
             ahead from 45 engineered features of the current 3-hour bin — solar
@@ -218,7 +398,10 @@
         </article>
 
         <article class="project-card">
-          <h3 class="project-title">Storm Predictor — LSTM</h3>
+          <h3 class="project-title">
+            <span class="model-accent">02</span>
+            Storm Predictor — LSTM
+          </h3>
           <p class="project-desc">
             A 2×128 recurrent sequence model trained with pos-weighted BCE that
             reads a rolling 48-hour window of 8 solar-wind and Ap channels
@@ -244,7 +427,10 @@
         </article>
 
         <article class="project-card">
-          <h3 class="project-title">Storm Predictor — TCN</h3>
+          <h3 class="project-title">
+            <span class="model-accent">03</span>
+            Storm Predictor — TCN
+          </h3>
           <p class="project-desc">
             A causal dilated convolutional network trained with focal loss on a
             rolling 48-hour solar-wind history, without ever seeing the current
@@ -272,6 +458,235 @@
         </article>
 
       </div>
+    </section>
+
+    <section id="results" class="section">
+
+      <h2 class="section-title">Model Evaluation</h2>
+
+      <p class="contact-blurb">
+        Because geomagnetic storms are rare events, accuracy alone would not
+        adequately describe model performance. We therefore compared the
+        models using PR-AUC, precision, recall, F1, and ROC-AUC on the same
+        held-out 2022–2024 test period.
+      </p>
+
+      <div class="model-card">
+
+        <div class="model-row">
+          <span class="model-key">XGBoost</span>
+          <span class="model-val">
+            PR-AUC 0.575 · Precision 0.375 · Recall 0.684 · F1 0.485
+          </span>
+        </div>
+
+        <div class="model-row">
+          <span class="model-key">LSTM</span>
+          <span class="model-val">
+            PR-AUC 0.610 · Precision 0.729 · Recall 0.448 · F1 0.555
+          </span>
+        </div>
+
+        <div class="model-row">
+          <span class="model-key">TCN</span>
+          <span class="model-val">
+            PR-AUC 0.602 · Precision 0.611 · Recall 0.552 · F1 0.580
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="model-results">
+
+        <div class="model-result">
+          <span class="result-model">XGBoost</span>
+          <span class="result-label">PR-AUC</span>
+          <span class="result-value">0.575</span>
+          <span class="result-detail">Recall · 0.684</span>
+        </div>
+
+        <div class="model-result">
+          <span class="result-model">LSTM</span>
+          <span class="result-label">PR-AUC</span>
+          <span class="result-value">0.610</span>
+          <span class="result-detail">Precision · 0.729</span>
+        </div>
+
+        <div class="model-result">
+          <span class="result-model">TCN</span>
+          <span class="result-label">F1</span>
+          <span class="result-value">0.580</span>
+          <span class="result-detail">Best overall balance</span>
+        </div>
+
+      </div>
+
+
+      <div class="about-text">
+
+        <p>
+          <strong>Interpretation:</strong>
+          XGBoost catches the largest proportion of actual storms, but
+          produces more false alarms. LSTM has the strongest precision and
+          PR-AUC, meaning its positive predictions are more reliable.
+          TCN achieves the highest F1 score, providing the best balance
+          between precision and recall at its selected threshold.
+        </p>
+
+        <p>
+          Operating thresholds were tuned rather than fixed at 0.50 because
+          the positive storm class is highly imbalanced.
+        </p>
+
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <h3>Performance comparison</h3>
+
+          <p>
+            The models demonstrate different strengths because they use
+            different representations of recent space-weather conditions.
+            XGBoost operates on a single 3-hour feature vector, while the
+            LSTM and TCN process approximately 48 hours of historical
+            observations.
+          </p>
+
+        </div>
+
+        <div class="about-photo">
+
+          <img
+            src="assets/pr-graph.png"
+            alt="Precision-recall curves for XGBoost, LSTM, and TCN on the held-out 2022–2024 test period"
+          />
+
+          <p class="image-caption">
+            Precision-recall curves for the three models
+            on the held-out 2022–2024 test period. PR-AUC is particularly useful here
+            because geomagnetic storms are a rare event.
+          </p>
+
+        </div>
+
+      </div>
+
+            <div class="about-text">
+        <h3>Confusion Matrices</h3>
+
+        <p>
+          Confusion matrices show how each model's predictions are distributed
+          between correct and incorrect storm classifications. Because missing
+          a storm and issuing a false alarm have different consequences, these
+          results provide additional context for the precision and recall
+          values above.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <h3 class="project-title">XGBoost · threshold 0.90</h3>
+
+          <div class="about-photo">
+            <img
+              src="assets/confusion-xgb.png"
+              alt="XGBoost confusion matrix showing true negatives, false positives, false negatives, and true positives"
+            />
+          </div>
+
+          <p class="project-desc">
+            XGBoost prioritizes recall, identifying the largest proportion of
+            actual storms but producing more false positives.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <h3 class="project-title">LSTM · threshold 0.80</h3>
+
+          <div class="about-photo">
+            <img
+              src="assets/confusion-lstm.png"
+              alt="LSTM confusion matrix showing true negatives, false positives, false negatives, and true positives"
+            />
+          </div>
+
+          <p class="project-desc">
+            LSTM produces the highest precision, meaning a larger proportion
+            of its storm predictions are correct.
+          </p>
+        </article>
+
+        <article class="project-card">
+          <h3 class="project-title">TCN · threshold 0.60</h3>
+
+          <div class="about-photo">
+            <img
+              src="assets/confusion-tcn.png"
+              alt="TCN confusion matrix showing true negatives, false positives, false negatives, and true positives"
+            />
+          </div>
+
+          <p class="project-desc">
+            TCN provides the strongest overall F1 balance between precision
+            and recall at its selected operating threshold.
+          </p>
+        </article>
+
+      </div>
+
+    </section>
+
+    <section id="impact" class="section">
+
+      <h2 class="section-title">Impact & Bias</h2>
+
+        <div class="about-text">
+          <h3>Potential Impact</h3>
+
+          <p>
+            Earlier warning of geomagnetic storms could help satellite operators,
+            aviation systems, communications networks, and power infrastructure
+            prepare for potentially disruptive space-weather events. A model that
+            improves storm detection could provide an additional tool for
+            monitoring and decision-making.
+            <sup>[2,4,6,7]</sup>
+          </p>
+
+          <p>
+            However, false alarms and missed storms both have consequences.
+            Excessive false positives could lead to unnecessary operational
+            responses, while false negatives could cause users to underestimate
+            an approaching storm. This system should therefore be treated as a
+            decision-support tool rather than a replacement for expert
+            space-weather forecasting.
+          </p>
+        </div>
+
+        <div class="about-text">
+          <h3>Bias & Responsible AI</h3>
+
+          <p>
+            Machine-learning models can reflect biases in the data used to train
+            them. Geomagnetic storms are relatively rare, so severe class
+            imbalance can cause a model to favor the majority non-storm class.
+            We addressed this through oversampling, weighted losses, focal loss,
+            and threshold tuning rather than relying on accuracy alone.
+          </p>
+
+          <p>
+            Model performance may also vary across different types or intensities
+            of space-weather events. Evaluating precision, recall, PR-AUC, and
+            confusion matrices helps reveal these trade-offs, while the
+            chronological test split provides a more realistic estimate of
+            performance on future observations.
+          </p>
+        </div>
+
+
     </section>
 
     <section id="experience" class="section">
@@ -329,6 +744,52 @@
       </div>
     </section>
 
+    <section id="future" class="section">
+      <h2 class="section-title">Next Steps</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <span class="timeline-date">Next 2 weeks</span>
+          <h3>User Feedback &amp; Accessibility</h3>
+          <p>
+            Improve explanations for non-technical users and collect feedback
+            on the dashboard's usability and clarity.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Next 1 month</span>
+          <h3>Calibration &amp; Threshold Testing</h3>
+          <p>
+            Improve probability calibration and conduct threshold stress tests
+            to evaluate how model performance changes under different
+            operating thresholds.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Next 1–2 months</span>
+          <h3>Robustness Evaluation</h3>
+          <p>
+            Test performance across more event-rich periods and additional
+            chronological splits to assess robustness across different
+            space-weather conditions.
+          </p>
+        </div>
+
+        <div class="timeline-item">
+          <span class="timeline-date">Next 3–6 months</span>
+          <h3>Severity Forecasting &amp; Baselines</h3>
+          <p>
+            Add severity-level forecasting and compare model performance
+            against operational forecasting baselines.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
     <section id="contact" class="section contact-section">
       <h2 class="section-title">Links</h2>
 
@@ -342,6 +803,129 @@
         <a href="https://github.com/anothergrind/geomagnetic-storm-predictor" target="_blank" rel="noopener">GitHub Repository</a>
         <a href="https://github.com/anothergrind/geomagnetic-storm-predictor/blob/main/README.md" target="_blank" rel="noopener">Full README</a>
       </div>
+    </section>
+
+    <section id="references" class="section">
+
+      <h2 class="section-title">References</h2>
+
+      <div class="references-list">
+
+        <div class="reference-item">
+          <span class="reference-number">[1]</span>
+          <p>
+            Sierra-Porta, D., et al.
+            “Machine Learning Models for Predicting Geomagnetic Storms across
+            Five Solar Cycles Using Dst Index and Heliospheric Variables.”
+            <em>Advances in Space Research</em>, vol. 74, no. 8, 2024.
+            <a
+              href="https://doi.org/10.1016/j.asr.2024.08.031"
+              target="_blank"
+              rel="noopener"
+            >
+              https://doi.org/10.1016/j.asr.2024.08.031
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[2]</span>
+          <p>
+            NOAA / NWS Space Weather Prediction Center.
+            “Geomagnetic Storms.”
+            <a
+              href="https://www.spaceweather.gov/phenomena/geomagnetic-storms"
+              target="_blank"
+              rel="noopener"
+            >
+              www.spaceweather.gov/phenomena/geomagnetic-storms
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[3]</span>
+          <p>
+            Kervalishvili, Guram, et al.
+            “A Novel Model for Forecasting Geomagnetic Indices Using Machine
+            Learning.” <em>Geophysical Research Letters</em>, vol. 52, no. 8,
+            2025.
+            <a
+              href="https://doi.org/10.1029/2025GL114848"
+              target="_blank"
+              rel="noopener"
+            >
+              https://doi.org/10.1029/2025GL114848
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[4]</span>
+          <p>
+            Love, J. J., Sobieszczyk, S., Rigler, E. J., Kelbert, A., &amp;
+            Lewis, K. A. “The Solar Cycle, Geology, and Geoelectric Hazards
+            for Power Grids.” <em>U.S. Geological Survey Fact Sheet
+            2024–3036</em>, 2024.
+            <a
+              href="https://doi.org/10.3133/fs20243036"
+              target="_blank"
+              rel="noopener"
+            >
+              https://doi.org/10.3133/fs20243036
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[5]</span>
+          <p>
+            Ram, Shree, and Prakash Ranganathan.
+            “Geomagnetic Storm Forecasting Using Machine Learning Models.”
+            <em>IEEE Xplore</em>, 2024.
+            <a
+              href="https://doi.org/10.1109/CCWC60891.2024.10427789"
+              target="_blank"
+              rel="noopener"
+            >
+              https://doi.org/10.1109/CCWC60891.2024.10427789
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[6]</span>
+          <p>
+            Sheposh, Richard.
+            “Geomagnetic Storm.”
+            <em>EBSCO Research Starters</em>, 2022.
+            <a
+              href="https://www.ebsco.com/research-starters/earth-and-atmospheric-sciences/geomagnetic-storm"
+              target="_blank"
+              rel="noopener"
+            >
+              www.ebsco.com/research-starters/earth-and-atmospheric-sciences/geomagnetic-storm
+            </a>
+          </p>
+        </div>
+
+        <div class="reference-item">
+          <span class="reference-number">[7]</span>
+          <p>
+            NASA Science.
+            “Solar Storms and Flares.” 2025.
+            <a
+              href="https://science.nasa.gov/sun/solar-storms-and-flares/"
+              target="_blank"
+              rel="noopener"
+            >
+              science.nasa.gov/sun/solar-storms-and-flares/
+            </a>
+          </p>
+        </div>
+
+      </div>
+
     </section>
 
   </main>
